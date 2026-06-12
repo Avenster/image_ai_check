@@ -1,0 +1,32 @@
+detectors:
+  cnn_detection:
+    enabled: true
+    model_path: weights/blur_jpg_prob0.5.pth
+    device: cuda
+  dire:
+    enabled: true
+    sd_model_id: runwayml/stable-diffusion-v1-5
+    device: cuda
+  universal_fake:
+    enabled: true
+    model_path: weights/universal_fake.pth
+    device: cuda
+  clip_zero_shot:
+    enabled: true
+    model_name: ViT-L/14
+    device: cuda
+  frequency:
+    enabled: true
+    model_path: weights/frequency_svm.pkl
+    device: cpu
+
+ensemble:
+  method: weighted_average   # or stacking, voting
+  weights: [0.25, 0.2, 0.2, 0.2, 0.15]   # per detector order
+  calibration: isotonic
+  disagreement_threshold: 0.25
+
+evaluation:
+  batch_size: 4
+  output_dir: results
+  log_individual: true

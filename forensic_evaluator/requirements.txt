@@ -1,0 +1,13 @@
+torch
+torchvision
+opencv-python
+diffusers
+transformers
+accelerate
+lpips
+scikit-learn
+scipy
+pyyaml
+piexif
+joblib
+openai-clip @ git+https://github.com/openai/CLIP.git
